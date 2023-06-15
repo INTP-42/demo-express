@@ -14,7 +14,7 @@
     "dev-start": "pm2 start ecosystem.config.js",
     "dev-stop": "pm2 stop demo-app",
     "dev": "nodemon src/app.js",
-    "test": "cross-env IS_TESTING=true mocha --require tests/fixtures.test.js --require tests/teardown.test.js ./*/test/*.test.js --reporter mochawesome -options reportDir=testReports,reportFilename=automatedTestReports --timeout 250000 --exit --bail",
+    "test": "cross-env IS_TESTING=true mocha --require tests/fixtures.test.js --require tests/teardown.test.js tests/*.test.js --reporter mochawesome -options reportDir=testReports,reportFilename=automatedTestReports --timeout 250000 --exit --bail",
     "lint": "eslint .",
     "lint:fix": "eslint .  --fix",
     "migrate-up": "migrate-mongo up",

@@ -4,6 +4,7 @@ module.exports = {
     commonjs: true,
     es2021: true,
     node: true,
+    mocha: true,
   },
   extends: ['standard', 'prettier', 'eslint-config-prettier'],
   parserOptions: {

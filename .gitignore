@@ -15,3 +15,4 @@ serverless.original.yml
 *logs
 audit.json
 vulnerablities.html
+mochawesome-report/
