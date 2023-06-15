@@ -40,13 +40,16 @@
     "mongodb",
     "proect-template"
   ],
-  "homepage": "",
-  "url": "",
-  "email": "",
-  "author": "",
+  "homepage": "https://github.com/sachin-kiwi/demo-express/#README.md",
+  "url": "https://github.com/sachin-kiwi/demo-express",
+  "email": "sachin.bisht@kiwitech.com",
+  "author": "sachin-kiwi",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/sachin-kiwi/demo-express"
+  },
+  "bugs": {
+    "url": "https://github.com/sachin-kiwi/demo-express/issues"
   },
   "license": "ISC",
   "dependencies": {
