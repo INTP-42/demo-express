@@ -2,7 +2,13 @@
   "name": "demo-express",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/app.js",
+  "private": true,
+  "engines": {
+    "node": ">=18.16.0",
+    "pnpm": ">=8.6.2",
+    "npm": "please use pnpm"
+  },
   "scripts": {
     "start": "node src/app.js",
     "dev-start": "pm2 start ecosystem.config.js",
@@ -15,10 +21,30 @@
     "migrate-down": "migrate-mongo down",
     "migrate-status": "migrate-mongo status",
     "logs": "git log --pretty='%C(Yellow)%h  %C(reset)%ad (%C(Green)%cr%C(reset))%x09 %C(Cyan)%an: %C(reset)%s'",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "audit:report": "pnpm audit --json | npm-audit-html --output vulnerablities.html",
+    "audit:": "pnpm audit --json | npm-audit-html --output vulnerablities.html --fatal-exit-code",
+    "clean": "rm pnpm-lock.yaml && rm -rf node_modules",
+    "docker-up": "docker-compose up",
+    "docker-down": "docker-compose down",
+    "docker-clean-containers": "docker rm $(docker ps -aq)",
+    "docker-clean-images": "docker rmi $(docker images -q)",
+    "precommit:lint": "pnpm run lint:fix && git add ."
   },
-  "keywords": [],
+  "keywords": [
+    "express",
+    "template",
+    "mongodb",
+    "proect-template"
+  ],
+  "homepage": "",
+  "url": "",
+  "email": "",
   "author": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
   "license": "ISC",
   "dependencies": {
     "axios": "^1.4.0",

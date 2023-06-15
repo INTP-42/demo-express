@@ -14,3 +14,4 @@ serverless.original.yml
 *.log
 *logs
 audit.json
+vulnerablities.html
