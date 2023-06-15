@@ -5,7 +5,7 @@ const {
   BAD_REQUEST,
   UNAUTHORIZED,
   NOT_FOUND,
-} = require("../constant/");
+} = require("../constant");
 const {
   userDao: { getUserInstance },
 } = require("../dao");

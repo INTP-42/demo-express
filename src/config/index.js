@@ -19,4 +19,7 @@ module.exports = {
   DEBUG_QUERIES: env.DEBUG_QUERIES === "true",
   JWT_SECRET: env.JWT_SECRET,
   APP_NAME: env.APP_NAME || app.name,
+  CORS_ORIGIN_CHECK_ENABLED:
+    env.CORS_ORIGIN_CHECK_ENABLED === "true" ? true : false,
+  NEW_RELIC_REQUIRED: env.NEW_RELIC_REQUIRED === "true",
 };

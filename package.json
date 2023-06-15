@@ -8,7 +8,10 @@
     "dev": "nodemon src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
-    "lint:fix": "eslint .  --fix"
+    "lint:fix": "eslint .  --fix",
+    "migrate-up": "migrate-mongo up",
+    "migrate-down": "migrate-mongo down",
+    "migrate-status": "migrate-mongo status"
   },
   "keywords": [],
   "author": "",
@@ -21,10 +24,13 @@
     "express-joi-validation": "^5.0.1",
     "file-stream-rotator": "^1.0.0",
     "helmet": "^7.0.0",
+    "ip": "^1.1.8",
     "joi": "^17.9.2",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.3.0",
     "node-cron": "^3.0.2",
-    "pino": "^8.14.1"
+    "pino": "^8.14.1",
+    "redis": "^4.6.7"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.0.2",

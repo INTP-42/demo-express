@@ -17,7 +17,7 @@ function createModel() {
       trim: true,
     },
   });
-  return createOrUseExistingModel("user", corsWhiteListSchema);
+  return createOrUseExistingModel("cors", corsWhiteListSchema);
 }
 
 // Create the User model
