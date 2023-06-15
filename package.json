@@ -28,6 +28,7 @@
     "joi": "^17.9.2",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.3.0",
+    "newrelic": "^10.3.0",
     "node-cron": "^3.0.2",
     "pino": "^8.14.1",
     "redis": "^4.6.7"

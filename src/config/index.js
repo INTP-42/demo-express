@@ -22,4 +22,5 @@ module.exports = {
   CORS_ORIGIN_CHECK_ENABLED:
     env.CORS_ORIGIN_CHECK_ENABLED === "true" ? true : false,
   NEW_RELIC_REQUIRED: env.NEW_RELIC_REQUIRED === "true",
+  REDIS_DEBUG_MODE: env.REDIS_DEBUG_MODE === "true",
 };

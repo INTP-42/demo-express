@@ -4,9 +4,10 @@ const http = require("http");
 const { databaseConnection } = require("./database");
 const server = require("./server");
 const { logs } = require("../logger");
-const { PORT, APP_NAME } = require("./config");
+const { PORT, APP_NAME, NEW_RELIC_REQUIRED } = require("./config");
 require("./common/models");
-
+// Load newRelic in app if enabled
+NEW_RELIC_REQUIRED && require("newrelic");
 const app = express();
 
 app.set("port", PORT);
