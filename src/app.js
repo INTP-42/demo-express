@@ -23,6 +23,7 @@ app.use((_, res, next) => {
 });
 
 app.use(express.json());
+app.use(require("express-status-monitor")());
 const httpserver = http.createServer(app);
 const methodName = "[main]";
 
@@ -33,6 +34,7 @@ databaseConnection().then(() => {
   httpserver
     .listen(PORT, () => {
       logs("info", methodName, `${APP_NAME} app is listening to port ${PORT}`);
+      console.log(`${APP_NAME} app is listening to port ${PORT}`);
     })
     .on("error", (err) => {
       logs("error", methodName, `Error: ${err.stack || err}`);

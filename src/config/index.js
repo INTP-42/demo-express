@@ -4,6 +4,7 @@ const { env } = process;
 
 const IS_TESTING = env.IS_TESTING === "true";
 const HOSTNAME = require("os").hostname();
+const REDIS_HOST = env.REDIS_HOST || "localhost";
 
 module.exports = {
   DB_URL: IS_TESTING ? env.TEST_MONGODB_URI : env.MONGODB_URI,
@@ -23,4 +24,9 @@ module.exports = {
     env.CORS_ORIGIN_CHECK_ENABLED === "true" ? true : false,
   NEW_RELIC_REQUIRED: env.NEW_RELIC_REQUIRED === "true",
   REDIS_DEBUG_MODE: env.REDIS_DEBUG_MODE === "true",
+  REDIS_READER_HOST: env.REDIS_READER_HOST || REDIS_HOST,
+  REDIS_HOST,
+  REDIS_PORT: Number(env.REDIS_PORT) || 6379,
+  RATELIMITER_WINDOWMS: Number(env.RATELIMITER_WINDOWMS) || 60000,
+  RATELIMITER_MAX_REQUEST: Number(env.RATELIMITER_MAX_REQUEST) || 20000,
 };

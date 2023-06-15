@@ -18,7 +18,6 @@ const checkOriginForWhitelist = async (origin, isPrivateIP = false) => {
   if (!origin && isPrivateIP) {
     return { message: null, status: true };
   }
-
   let isValid = false;
   const data = await getCorsWhiteListAll({}, { ip_address: 1 });
   for (const value of data) {
@@ -42,21 +41,16 @@ const checkOriginForWhitelist = async (origin, isPrivateIP = false) => {
   }
 };
 
-const corsPolicy = async function (req) {
+const corsPolicy = async function (req, callback) {
+  let result = { message: "", status: true };
   if (CORS_ORIGIN_CHECK_ENABLED) {
-    return {};
+    const origin = req.header("Origin");
+    result = await checkOriginForWhitelist(
+      typeof origin !== "undefined" && origin ? origin : null,
+      ip.isPrivate(req.ip)
+    );
   }
-  logs("info", "Request IP-", `${req.ip}`);
-  const origin = req.header("Origin");
-  const whitelistParams = {
-    origin: typeof origin !== "undefined" && origin ? origin : null,
-    isPrivateIP: ip.isPrivate(req.ip),
-  };
-  const result = await checkOriginForWhitelist(
-    whitelistParams.origin,
-    whitelistParams.isPrivateIP
-  );
-  return { message: result.message, status: result.status };
+  callback(result.message, result.status);
 };
 
 module.exports = {

@@ -5,13 +5,13 @@ const {
   BAD_REQUEST,
   UNAUTHORIZED,
   NOT_FOUND,
-} = require("../constant");
+} = require("../constant/httpStatusCodes");
 const {
   userDao: { getUserInstance },
 } = require("../dao");
 const { verifyJWT } = require("../utils/authTokens");
 const { CustomError } = require("../utils/customError");
-const { logs } = require("../../logger");
+const { logs } = require("../../../logger");
 const {
   Types: { ObjectId },
 } = require("mongoose");
