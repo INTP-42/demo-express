@@ -1,4 +1,4 @@
-const { generateMigrationData } = require('../src/common/utils/generator')
+const { generateMigrationData } = require('../../src/common/utils/generator')
 
 const processData = async () => {
   const data = []

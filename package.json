@@ -22,14 +22,17 @@
     "migrate-status": "migrate-mongo status",
     "logs": "git log --pretty='%C(Yellow)%h  %C(reset)%ad (%C(Green)%cr%C(reset))%x09 %C(Cyan)%an: %C(reset)%s'",
     "prepare": "husky install",
-    "audit:report": "pnpm audit --json | npm-audit-html --output vulnerablities.html",
-    "audit": "pnpm audit --json | npm-audit-html --output vulnerablities.html --fatal-exit-code",
+    "audit:report": "pnpm audit --json | npm-audit-html --output ./report/npm-audit/vulnerablities.html",
     "clean": "rm pnpm-lock.yaml && rm -rf node_modules",
+    "audit": "pnpm audit --json | npm-audit-html --output ./report/npm-audit/vulnerablities.html --fatal-exit-code",
     "docker-up": "docker-compose up",
     "docker-down": "docker-compose down",
     "docker-clean-containers": "docker rm $(docker ps -aq)",
     "docker-clean-images": "docker rmi $(docker images -q)",
-    "precommit:lint": "pnpm run lint:fix && git add ."
+    "precommit:lint": "pnpm run lint:fix && git add .",
+    "coverage": "nyc npm run test && pnpm run audit:report ",
+    "clean:report": "rm -rf report/",
+    "clean:logs": "rm -rf logs/"
   },
   "keywords": [
     "express",
@@ -85,6 +88,7 @@
     "mochawesome": "^7.1.3",
     "nodemon": "^2.0.22",
     "npm-audit-html": "^1.5.0",
+    "nyc": "^15.1.0",
     "pm2": "^5.3.0",
     "prettier": "^2.8.8"
   }

@@ -26,6 +26,7 @@ const generateMigrationData = async () => {
   const lastName = faker.person.lastName(gender)
   const email = faker.internet.email({ firstName, lastName })
   return {
+    userName: `${firstName}_${lastName}`,
     firstName,
     lastName,
     _id,
