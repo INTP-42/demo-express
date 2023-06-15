@@ -52,6 +52,7 @@
     "dotenv": "^16.1.4",
     "express": "^4.18.2",
     "express-joi-validation": "^5.0.1",
+    "express-rate-limit": "^6.7.0",
     "file-stream-rotator": "^1.0.0",
     "helmet": "^7.0.0",
     "ip": "^1.1.8",
@@ -62,6 +63,7 @@
     "newrelic": "^10.3.0",
     "node-cron": "^3.0.2",
     "pino": "^8.14.1",
+    "rate-limit-mongo": "^2.3.2",
     "redis": "^4.6.7"
   },
   "devDependencies": {

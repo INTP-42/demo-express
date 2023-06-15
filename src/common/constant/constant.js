@@ -27,9 +27,11 @@ const ROLE = {
 }
 
 const API_VERSION = '/api/v1'
+const IPADDR_COLLECTION = 'ipblacklists'
 
 module.exports = {
   NUMBERS,
   ROLE,
   API_VERSION,
+  IPADDR_COLLECTION,
 }

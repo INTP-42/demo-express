@@ -5,6 +5,7 @@ const MESSAGES = {
   ERRORS: {
     SYSTEM: {
       INTERNAL_SERVER_ERROR: 'Internal Server Error',
+      LIMIT_EXCEEDED: 'Too many requests, please try again later.',
     },
     AUTH: {
       AUTHENTICATION_TOKEN_MISSING: 'Access token missing in request header.',

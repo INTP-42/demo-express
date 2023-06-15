@@ -10,6 +10,8 @@ const httpStatusCodes = {
   UN_PROCESSABLE_ENTITY: 422,
   SERVER_ERROR: 500,
   PRECONDITION_FAILED: 412,
+  TOO_MANY_REQUEST: 429,
+  REDIRECT: 301,
 }
 
 module.exports = httpStatusCodes
