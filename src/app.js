@@ -23,7 +23,6 @@ app.use((_, res, next) => {
 })
 
 app.use(express.json())
-app.use(require('express-status-monitor')())
 const httpserver = http.createServer(app)
 const methodName = '[main]'
 
