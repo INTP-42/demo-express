@@ -14,7 +14,8 @@
     "migrate-up": "migrate-mongo up",
     "migrate-down": "migrate-mongo down",
     "migrate-status": "migrate-mongo status",
-    "logs": "git log --pretty='%C(Yellow)%h  %C(reset)%ad (%C(Green)%cr%C(reset))%x09 %C(Cyan)%an: %C(reset)%s'"
+    "logs": "git log --pretty='%C(Yellow)%h  %C(reset)%ad (%C(Green)%cr%C(reset))%x09 %C(Cyan)%an: %C(reset)%s'",
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
@@ -50,6 +51,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^6.0.0",
     "generate-password": "^1.7.0",
+    "husky": "^8.0.3",
     "migrate-mongo": "^10.0.0",
     "mocha": "^10.2.0",
     "mochawesome": "^7.1.3",
