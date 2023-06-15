@@ -1,4 +1,4 @@
 module.exports = {
-  cors: require("./cors"),
-  user: require("./user"),
-};
+  Cors: require('./cors'),
+  User: require('./user'),
+}

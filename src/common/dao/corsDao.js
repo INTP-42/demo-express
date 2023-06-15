@@ -1,13 +1,13 @@
-const { cors } = require("../models");
+const { Cors } = require('../models')
 
 const getCorsWhiteList = async (query, projection = {}) =>
-  cors.findOne(query, projection);
+  Cors.findOne(query, projection)
 const getCorsWhiteListAll = async (query, projection = {}) =>
-  cors.find(query, projection);
+  Cors.find(query, projection)
 const updateCorsWhiteList = async (query, update) =>
-  cors.updateOne(query, update, { new: true });
-const addCorsWhiteList = async (obj) => new cors(obj).save();
-const removeCorsWhiteList = async (query) => cors.findOneAndDelete(query);
+  Cors.updateOne(query, update, { new: true })
+const addCorsWhiteList = async (obj) => new Cors(obj).save()
+const removeCorsWhiteList = async (query) => Cors.findOneAndDelete(query)
 
 module.exports = {
   getCorsWhiteList,
@@ -15,4 +15,4 @@ module.exports = {
   updateCorsWhiteList,
   addCorsWhiteList,
   removeCorsWhiteList,
-};
+}

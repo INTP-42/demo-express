@@ -1,4 +1,4 @@
-const { user } = require("../models");
+const { User } = require('../models')
 
 const PROJECTION = {
   ALL: {},
@@ -10,33 +10,32 @@ const PROJECTION = {
   ID: {
     _id: 1,
   },
-};
+}
 
 /**
- * get single object of user.
+ * get single object of User.
  * @property {object} userInfo- match condition
  * @property {object} condition- update condition
- * @returns {object} user instance on success and error on failure
+ * @returns {object} User instance on success and error on failure
  */
 
 const getUserInstance = async (query, projection) =>
-  user
-    .findOne(query, projection ? PROJECTION[projection] : PROJECTION.ALL)
+  User.findOne(query, projection ? PROJECTION[projection] : PROJECTION.ALL)
     .lean()
-    .exec();
+    .exec()
 
 const updateUserInstance = async (query, update) =>
-  user.findOneAndUpdate(query, update, { new: true });
+  User.findOneAndUpdate(query, update, { new: true })
 
-const saveUser = async (userObj) => new user(userObj).save();
+const saveUser = async (userObj) => new User(userObj).save()
 
 const getMultipleUserInstance = async (query, projection) =>
-  user.find(query, projection || PROJECTION.ALL);
+  User.find(query, projection || PROJECTION.ALL)
 
 const updateMultipleUserInstance = async (query, update) =>
-  user.updateMany(query, update);
+  User.updateMany(query, update)
 
-const removeUser = (query) => user.deleteOne(query);
+const removeUser = (query) => User.deleteOne(query)
 
 module.exports = {
   getUserInstance,
@@ -45,4 +44,4 @@ module.exports = {
   getMultipleUserInstance,
   updateMultipleUserInstance,
   removeUser,
-};
+}

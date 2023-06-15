@@ -1,20 +1,20 @@
-const _ = require("lodash");
-const MESSAGES = require("../messages");
+const _ = require('lodash')
+const MESSAGES = require('../messages')
 const {
   UN_PROCESSABLE_ENTITY,
   BAD_REQUEST,
   UNAUTHORIZED,
   NOT_FOUND,
-} = require("../constant/httpStatusCodes");
+} = require('../constant/httpStatusCodes')
 const {
   userDao: { getUserInstance },
-} = require("../dao");
-const { verifyJWT } = require("../utils/authTokens");
-const { CustomError } = require("../utils/customError");
-const { logs } = require("../../../logger");
+} = require('../dao')
+const { verifyJWT } = require('../utils/authTokens')
+const { CustomError } = require('../utils/customError')
+const { logs } = require('../../../logger')
 const {
   Types: { ObjectId },
-} = require("mongoose");
+} = require('mongoose')
 
 /**
  * This function will catch the validation errors as middleware
@@ -26,108 +26,108 @@ const {
  */
 
 const catchValidationErrors = (err, req, res, next) => {
-  logs("error", "[catchValidationErrors]", `Error ${err.stack || err}`);
+  logs('error', '[catchValidationErrors]', `Error ${err.stack || err}`)
   if (err.isBoom) {
     const {
       data,
       output: {
         payload: { statusCode },
       },
-    } = err;
-    logs("info", "[catchValidationErrors]", `statusCode :${statusCode}`);
+    } = err
+    logs('info', '[catchValidationErrors]', `statusCode :${statusCode}`)
     let errorDetails = _.map(
       data,
-      _.partialRight(_.pick, ["message", "path", "type"])
-    );
-    if (!_.has(errorDetails[0], "message")) {
-      errorDetails = [];
+      _.partialRight(_.pick, ['message', 'path', 'type'])
+    )
+    if (!_.has(errorDetails[0], 'message')) {
+      errorDetails = []
       errorDetails.push({
-        message: "Invalid inputs",
+        message: 'Invalid inputs',
         path: `${req.path}`,
         type: `${req.method}`,
-      });
+      })
     } else if (
-      errorDetails[0].message.includes("fails to match the required pattern")
+      errorDetails[0].message.includes('fails to match the required pattern')
     ) {
-      errorDetails[0].message = "Please enter valid input.";
+      errorDetails[0].message = 'Please enter valid input.'
     }
 
     return res
       .status(statusCode || UN_PROCESSABLE_ENTITY)
       .json({ status: statusCode, message: errorDetails[0].message })
-      .end();
+      .end()
   } else if (err instanceof CustomError) {
-    const { status, message, isDeactivatedUser } = err;
-    logs("info", "[catchValidationErrors]", "CustomError");
-    return res.status(err.status).send({ status, message, isDeactivatedUser });
+    const { status, message, isDeactivatedUser } = err
+    logs('info', '[catchValidationErrors]', 'CustomError')
+    return res.status(err.status).send({ status, message, isDeactivatedUser })
   } else {
-    return next();
+    return next()
   }
-};
+}
 
 const ObjectIdValidate = async (id, fieldName) => {
   if (!ObjectId.isValid(id)) {
-    throw new CustomError(UNAUTHORIZED, `Invalid ${fieldName} id`);
+    throw new CustomError(UNAUTHORIZED, `Invalid ${fieldName} id`)
   }
-};
+}
 
 const userAuthentication = async (req, res, next) => {
   try {
-    const apiKey = req.get("api-key");
-    const token = req.get("authorization");
+    const apiKey = req.get('api-key')
+    const token = req.get('authorization')
     if (!apiKey) {
       throw new CustomError(
         BAD_REQUEST,
         MESSAGES.ERRORS.AUTH.AUTHENTICATION_KEY_MISSING
-      );
+      )
     }
     if (!token) {
       throw new CustomError(
         BAD_REQUEST,
         MESSAGES.ERRORS.AUTH.AUTHENTICATION_TOKEN_MISSING
-      );
+      )
     }
-    let verifyToken;
+    let verifyToken
     try {
-      verifyToken = await verifyJWT(token);
+      verifyToken = await verifyJWT(token)
       if (!verifyToken) {
-        throw new CustomError(BAD_REQUEST, MESSAGES.ERRORS.AUTH.INVALID_TOKEN);
+        throw new CustomError(BAD_REQUEST, MESSAGES.ERRORS.AUTH.INVALID_TOKEN)
       }
     } catch (e) {
       throw new CustomError(
         UNAUTHORIZED,
         MESSAGES.ERRORS.AUTH.INVALID_AUTH_TOKEN
-      );
+      )
     }
-    const { _id } = verifyToken;
+    const { _id } = verifyToken
     const activeUser = await getUserInstance(
-      { _id, apiKey, status: "acitve" },
-      ""
-    );
+      { _id, apiKey, status: 'acitve' },
+      ''
+    )
     if (!activeUser) {
-      throw new CustomError(NOT_FOUND, MESSAGES.ERRORS.USER.DELETED_USER);
-    } else if (activeUser.status === "deactivated") {
+      throw new CustomError(NOT_FOUND, MESSAGES.ERRORS.USER.DELETED_USER)
+    } else if (activeUser.status === 'deactivated') {
       throw new CustomError(
         UNAUTHORIZED,
         MESSAGES.ERRORS.USER.IN_ACTIVE_USER,
         true
-      );
+      )
     } else {
-      req.activeUser = activeUser;
-      next();
+      req.activeUser = activeUser
+      next()
     }
   } catch (error) {
     logs(
-      "error",
-      "[userAuthentication]",
+      'error',
+      '[userAuthentication]',
       `Authentication failed: ${error.stack || error}`
-    );
-    return res.status(error.status).send(error);
+    )
+    return res.status(error.status).send(error)
   }
-};
+}
 
 module.exports = {
   catchValidationErrors,
   userAuthentication,
   ObjectIdValidate,
-};
+}

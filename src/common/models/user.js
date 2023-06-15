@@ -1,6 +1,6 @@
-const { createOrUseExistingModel } = require("../utils/mongoutils");
-const mongoose = require("mongoose");
-const { Schema } = mongoose;
+const { createOrUseExistingModel } = require('../utils/mongoutils')
+const mongoose = require('mongoose')
+const { Schema } = mongoose
 
 function createModel() {
   // Define the user schema
@@ -21,13 +21,13 @@ function createModel() {
     },
     role: {
       type: String,
-      enum: ["admin", "user", "super_admin"],
-      default: "user",
+      enum: ['admin', 'user', 'super_admin'],
+      default: 'user',
     },
     gender: {
       type: String,
-      enum: ["male", "female", "none"],
-      default: "none",
+      enum: ['male', 'female', 'none'],
+      default: 'none',
     },
     apiKey: {
       type: String,
@@ -35,21 +35,21 @@ function createModel() {
     },
     comments: {
       type: String,
-      default: "",
+      default: '',
     },
     status: {
       type: String,
-      enum: ["in-review", "active", "rejected", "blocked", "deactivated"],
-      default: "in-review",
+      enum: ['in-review', 'active', 'rejected', 'blocked', 'deactivated'],
+      default: 'in-review',
     },
     isVerified: {
       type: Boolean,
       default: false,
     },
-  });
-  return createOrUseExistingModel("user", userSchema);
+  })
+  return createOrUseExistingModel('user', userSchema)
 }
 
 // Create the User model
-const model = createModel();
-module.exports = model;
+const model = createModel()
+module.exports = model

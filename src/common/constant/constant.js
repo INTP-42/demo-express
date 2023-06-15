@@ -18,18 +18,18 @@ const NUMBERS = {
   TEN_THOUSAND: 10000,
   THIRTY_SIX_HUNDRED: 3600,
   EIGHT: 8,
-};
+}
 
 const ROLE = {
   ADMIN: 'admin',
   SUPER_ADMIN: 'super_admin',
   USER: 'user',
-};
+}
 
-const API_VERSION = '/api/v1';
+const API_VERSION = '/api/v1'
 
 module.exports = {
   NUMBERS,
   ROLE,
   API_VERSION,
-};
+}

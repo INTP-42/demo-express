@@ -1,5 +1,5 @@
-const jwt = require('jsonwebtoken');
-const { JWT_SECRET } = require('../../config');
+const jwt = require('jsonwebtoken')
+const { JWT_SECRET } = require('../../config')
 
 /**
  * @description generate jwt token with secret key defined in env file.
@@ -9,8 +9,8 @@ const { JWT_SECRET } = require('../../config');
  */
 
 const createJWT = async (payload, secret = `${JWT_SECRET}`, options = {}) => {
-  jwt.sign(payload, secret, options);
-};
+  jwt.sign(payload, secret, options)
+}
 
 /**
  * @description verify JWT token
@@ -20,21 +20,21 @@ const createJWT = async (payload, secret = `${JWT_SECRET}`, options = {}) => {
  */
 
 const verifyJWT = async (token, secret = `${JWT_SECRET}`) =>
-  jwt.verify(token, secret);
+  jwt.verify(token, secret)
 
 const getRequestKeys = (event) => {
-  const partnerKey = event.headers['x-game-partner-key'];
-  const token = event.headers.Authorization || event.headers.authorization;
-  const body = JSON.parse(event.body || '{}');
+  const partnerKey = event.headers['x-game-partner-key']
+  const token = event.headers.Authorization || event.headers.authorization
+  const body = JSON.parse(event.body || '{}')
   return {
     partnerKey,
     token,
     body,
-  };
-};
+  }
+}
 
 module.exports = {
   createJWT,
   verifyJWT,
   getRequestKeys,
-};
+}

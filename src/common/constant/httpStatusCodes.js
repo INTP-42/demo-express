@@ -10,6 +10,6 @@ const httpStatusCodes = {
   UN_PROCESSABLE_ENTITY: 422,
   SERVER_ERROR: 500,
   PRECONDITION_FAILED: 412,
-};
+}
 
-module.exports = httpStatusCodes;
+module.exports = httpStatusCodes

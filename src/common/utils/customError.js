@@ -4,13 +4,13 @@
  */
 class CustomError extends Error {
   constructor(status, message, isDeactivatedUser) {
-    super();
-    this.status = status;
-    this.message = message;
+    super()
+    this.status = status
+    this.message = message
     if (isDeactivatedUser) {
-      this.isDeactivatedUser = isDeactivatedUser;
+      this.isDeactivatedUser = isDeactivatedUser
     }
   }
 }
 
-module.exports = { CustomError };
+module.exports = { CustomError }

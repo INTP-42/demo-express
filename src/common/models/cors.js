@@ -1,6 +1,6 @@
-const { createOrUseExistingModel } = require("../utils/mongoutils");
-const mongoose = require("mongoose");
-const { Schema } = mongoose;
+const { createOrUseExistingModel } = require('../utils/mongoutils')
+const mongoose = require('mongoose')
+const { Schema } = mongoose
 
 function createModel() {
   const corsWhiteListSchema = new Schema({
@@ -16,10 +16,10 @@ function createModel() {
       required: true,
       trim: true,
     },
-  });
-  return createOrUseExistingModel("cors", corsWhiteListSchema);
+  })
+  return createOrUseExistingModel('cors', corsWhiteListSchema)
 }
 
 // Create the User model
-const model = createModel();
-module.exports = model;
+const model = createModel()
+module.exports = model

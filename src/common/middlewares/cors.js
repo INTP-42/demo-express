@@ -1,59 +1,59 @@
 const {
   corsDao: { getCorsWhiteListAll },
-} = require("../dao");
-const { CustomError } = require("../utils/customError");
+} = require('../dao')
+const { CustomError } = require('../utils/customError')
 const {
   httpStatusCodes: { BAD_REQUEST },
-} = require("../constant/index");
-const { logs } = require("../../../logger");
-const cors = require("cors");
-const { CORS_ORIGIN_CHECK_ENABLED } = require("../../config");
-const ip = require("ip");
+} = require('../constant/index')
+const { logs } = require('../../../logger')
+const cors = require('cors')
+const { CORS_ORIGIN_CHECK_ENABLED } = require('../../config')
+const ip = require('ip')
 
 const checkOriginForWhitelist = async (origin, isPrivateIP = false) => {
-  methodName = "[checkOriginForWhitelist]";
-  logs("info", methodName, `origin: ${origin}, isPrivateIP: ${isPrivateIP}`);
+  const methodName = '[checkOriginForWhitelist]'
+  logs('info', methodName, `origin: ${origin}, isPrivateIP: ${isPrivateIP}`)
 
   // Allow requests from private IPs
   if (!origin && isPrivateIP) {
-    return { message: null, status: true };
+    return { message: null, status: true }
   }
-  let isValid = false;
-  const data = await getCorsWhiteListAll({}, { ip_address: 1 });
+  let isValid = false
+  const data = await getCorsWhiteListAll({}, { ip_address: 1 })
   for (const value of data) {
     if (value.ip_address === origin) {
-      isValid = true;
-      break;
+      isValid = true
+      break
     }
   }
   if (isValid) {
-    return { message: null, status: true };
+    return { message: null, status: true }
   } else {
     logs(
-      "error",
+      'error',
       methodName,
       `The request origin [${origin}] is not whitelisted.`
-    );
+    )
     return {
-      message: new CustomError(BAD_REQUEST, "Not allowed by CORS policy!"),
+      message: new CustomError(BAD_REQUEST, 'Not allowed by CORS policy!'),
       status: false,
-    };
+    }
   }
-};
+}
 
 const corsPolicy = async function (req, callback) {
-  let result = { message: "", status: true };
+  let result = { message: '', status: true }
   if (CORS_ORIGIN_CHECK_ENABLED) {
-    const origin = req.header("Origin");
+    const origin = req.header('Origin')
     result = await checkOriginForWhitelist(
-      typeof origin !== "undefined" && origin ? origin : null,
+      typeof origin !== 'undefined' && origin ? origin : null,
       ip.isPrivate(req.ip)
-    );
+    )
   }
-  callback(result.message, result.status);
-};
+  callback(result.message, result.status)
+}
 
 module.exports = {
   checkOriginForWhitelist,
   corsMiddleWare: cors(corsPolicy),
-};
+}

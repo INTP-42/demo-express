@@ -1,19 +1,19 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
 const createOrUseExistingModel = (modelName, schema, compiledModelOptions) => {
-  let modelInstance;
+  let modelInstance
   try {
-    modelInstance = mongoose.model(modelName);
+    modelInstance = mongoose.model(modelName)
   } catch (error) {
     if (compiledModelOptions) {
-      modelInstance = mongoose.model(modelName, schema, compiledModelOptions);
+      modelInstance = mongoose.model(modelName, schema, compiledModelOptions)
     } else {
-      modelInstance = mongoose.model(modelName, schema);
+      modelInstance = mongoose.model(modelName, schema)
     }
   }
-  return modelInstance;
-};
+  return modelInstance
+}
 
 module.exports = {
   createOrUseExistingModel,
-};
+}
