@@ -1,0 +1,59 @@
+- name: feat
+  description: A commit that adds new functionality to the codebase. Color: Dark Green
+  color: "#006400"
+
+- name: fix
+  description: A commit that resolves a known bug or issue. Color: Dark Red
+  color: "#8B0000"
+
+- name: refactor
+  description: A commit that improves the structure, performance, or readability of the code without changing its behavior. Color: Dark Purple
+  color: "#4B0082"
+
+- name: doc
+  description: A commit that specifically focuses on updating or improving documentation. Color: Dark Blue
+  color: "#00008B"
+
+- name: test
+  description: A commit that adds or modifies tests to ensure the code behaves correctly. Color: Dark Yellow
+  color: "#8B8B00"
+
+- name: style
+  description: A commit that makes changes to the code formatting, such as indentation, whitespace, or naming conventions. Color: Dark Cyan
+  color: "#008B8B"
+
+- name: chore
+  description: A commit that includes administrative or housekeeping tasks, such as updating dependencies or cleaning up unused code. Color: Dark Orange
+  color: "#8B4500"
+
+- name: milestone
+  description: A label for tracking milestones. Color: Orange
+  color: "#FFA500"
+
+- name: release
+  description: A label for marking release versions. Color: Gold
+  color: "#FFD700"
+
+- name: enhancement
+  description: A commit that introduces improvements or optimizations to existing functionality. Color: Dark Turquoise
+  color: "#00CED1"
+
+- name: bug
+  description: A commit that addresses a reported bug or unexpected behavior. Color: Orange Red
+  color: "#FF4500"
+
+- name: performance
+  description: A commit that aims to enhance the performance or efficiency of the code. Color: Light Salmon
+  color: "#FFA07A"
+
+- name: design
+  description: A commit related to design changes or updates. Color: Hot Pink
+  color: "#FF69B4"
+
+- name: security
+  description: A commit that addresses security vulnerabilities or concerns. Color: Crimson
+  color: "#DC143C"
+
+- name: dependency
+  description: A commit that updates or manages dependencies. Color: Sea Green
+  color: "#2E8B57"
