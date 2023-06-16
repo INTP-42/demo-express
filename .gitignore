@@ -14,4 +14,4 @@ serverless.original.yml
 *.log
 *logs
 audit.json
-report/
+reports/

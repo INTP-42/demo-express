@@ -2,6 +2,6 @@
   "all": true,
   "include": ["src/**/*.js"],
   "exclude": ["tests/**/*.js"],
-  "report-dir": "report/code-coverage/",
+  "report-dir": "reports/code-coverage/",
   "reporter": "html"
 }
