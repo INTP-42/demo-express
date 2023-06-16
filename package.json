@@ -7,13 +7,14 @@
   "engines": {
     "node": ">=18.16.0",
     "pnpm": ">=8.6.2",
-    "npm": "please use pnpm"
+    "npm": "please use pnpm",
+    "yarn": "please use pnpm"
   },
   "scripts": {
-    "start": "node src/app.js",
+    "start": "NODE_ENV=production node src/app.js",
     "dev-start": "pm2 start ecosystem.config.js",
     "dev-stop": "pm2 stop demo-app",
-    "dev": "nodemon src/app.js",
+    "dev": "NODE_ENV=development nodemon src/app.js",
     "test": "cross-env IS_TESTING=true mocha --require tests/fixtures.test.js --require tests/teardown.test.js tests/*.test.js --reporter mochawesome -options reportDir=testReports,reportFilename=automatedTestReports --timeout 250000 --exit --bail",
     "lint": "eslint .",
     "lint:fix": "eslint .  --fix",
@@ -32,7 +33,8 @@
     "precommit:lint": "pnpm run lint:fix && git add .",
     "coverage": "nyc npm run test && pnpm run audit:report ",
     "clean:report": "rm -rf report/",
-    "clean:logs": "rm -rf logs/"
+    "clean:logs": "rm -rf logs/",
+    "preinstall": "npx only-allow pnpm"
   },
   "keywords": [
     "express",
