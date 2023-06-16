@@ -5,6 +5,9 @@ const { logs } = require('../../logger')
 module.exports = async () => {
   const methodName = '[DB connection]'
   try {
+    if (!DB_URL) {
+      throw new Error('Missing Database Connection URL')
+    }
     logs('info', methodName, `Connecting to db ${DB_URL}`)
     await mongoose.connect(DB_URL, {
       useNewUrlParser: true,
