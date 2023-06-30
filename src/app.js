@@ -58,11 +58,12 @@ process.on('unhandledRejection', async (reason, p) => {
 })
 
 process.on('SIGINT', () => {
-  logs('info', methodName, 'clean up done')
+  logs('info', methodName, 'Signal Recieved -  SIGINT')
   process.exit(0)
 })
 
 process.on('SIGTERM', () => {
+  logs('info', methodName, 'Signal Received - SIGTERM')
   process.exit(0)
 })
 
