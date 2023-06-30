@@ -4,7 +4,7 @@ const http = require('http')
 const { databaseConnection } = require('./database')
 const server = require('./server')
 const { logs } = require('../logger')
-const { PORT, APP_NAME, NEW_RELIC_REQUIRED } = require('./config')
+const { PORT, APP_NAME, NEW_RELIC_REQUIRED, IS_TESTING } = require('./config')
 require('./common/models')
 // Load newRelic in app if enabled
 NEW_RELIC_REQUIRED && require('newrelic')
@@ -27,6 +27,7 @@ const httpserver = http.createServer(app)
 const methodName = '[main]'
 
 databaseConnection().then(() => {
+  IS_TESTING && logs('info', methodName, 'App running in test mode')
   logs('info', methodName, `Spinning up the ${APP_NAME} app on PORT: ${PORT}`)
   server(app)
 
@@ -57,11 +58,12 @@ process.on('unhandledRejection', async (reason, p) => {
 })
 
 process.on('SIGINT', () => {
-  logs('info', methodName, 'clean up done')
+  logs('info', methodName, 'Signal Recieved -  SIGINT')
   process.exit(0)
 })
 
 process.on('SIGTERM', () => {
+  logs('info', methodName, 'Signal Received - SIGTERM')
   process.exit(0)
 })
 

@@ -1,13 +1,8 @@
 require('dotenv').config()
-const chai = require('chai')
-const chaiHttp = require('chai-http')
 const { migrateMongoConfig } = require('./database')
 const { status, config, database, up } = require('migrate-mongo')
 
 exports.mochaGlobalSetup = async function () {
-  chai.use(chaiHttp)
-
-  console.log('mochaGlobalSetup')
   try {
     console.log('connecting to test db...')
     console.log('Connected to db successfully.')

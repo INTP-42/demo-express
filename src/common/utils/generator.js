@@ -19,14 +19,18 @@ const generateApiKeyAndId = async (length = 15) => {
   return { _id, apiKey }
 }
 
-const generateMigrationData = async () => {
+const generateMigrationData = async (domain) => {
   const gender = faker.person.sex()
   const { _id, apiKey } = await generateApiKeyAndId()
   const firstName = faker.person.firstName(gender)
   const lastName = faker.person.lastName(gender)
-  const email = faker.internet.email({ firstName, lastName })
+  const email = faker.internet.email({
+    firstName,
+    lastName,
+    provider: domain,
+  })
   return {
-    userName: `${firstName}_${lastName}`,
+    username: `${firstName}_${lastName}`,
     firstName,
     lastName,
     _id,

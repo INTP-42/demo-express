@@ -9,7 +9,7 @@ const {
 chai.use(chaiHttp)
 const requester = chai.request(app).keepOpen()
 
-describe('HEALTH TEST SUIT', async function () {
+describe('Health runner suit', async function () {
   before(() => console.log('Testing Initiated'))
 
   it('Health Check', async function () {
