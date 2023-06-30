@@ -1,12 +1,12 @@
+const data = require('../data/cors')
+
 module.exports = {
   async up(db) {
-    await db.collection('cors').insertOne({
-      email: 'admin@yopmail.com',
-      ip_address: 'http://localhost:3000',
-    })
+    await db.collection('cors').insertMany(data)
   },
 
   async down(db) {
-    await db.collection('cors').drop()
+    const emailList = data.map((x) => x.email)
+    await db.collection('cors').deleteMany({ email: { $in: emailList } })
   },
 }

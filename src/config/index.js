@@ -157,5 +157,5 @@ try {
   }
   process.exit(1)
 }
-console.log(config.getProperties())
+
 module.exports = config.getProperties()
