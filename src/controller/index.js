@@ -1,6 +1,6 @@
-const { SERVER_ERROR, OK } = require('../common/constant/httpStatusCodes')
-const { logs } = require('../../logger')
-const MESSAGES = require('../common/messages')
+const { SERVER_ERROR, OK } = require('@constant/httpStatusCodes')
+const { logs } = require('@root/logger')
+const MESSAGES = require('@common/messages')
 
 const liveness = (_, res) => {
   try {

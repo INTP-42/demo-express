@@ -1,6 +1,6 @@
 const { Schema } = require('mongoose')
-const { IPADDR_COLLECTION } = require('../constant/constant')
-const { createOrUseExistingModel } = require('../utils/mongoutils')
+const { IPADDR_COLLECTION } = require('@constant/constant')
+const { createOrUseExistingModel } = require('@utils/mongoutils')
 
 const ipSchema = new Schema({
   _id: { type: String },

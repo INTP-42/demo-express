@@ -1,15 +1,15 @@
 const rateLimit = require('express-rate-limit')
 const MongoStore = require('rate-limit-mongo')
-const { IPADDR_COLLECTION } = require('../constant/constant')
+const { IPADDR_COLLECTION } = require('@constant/constant')
 const {
   DB_URL,
   RATELIMITER_WINDOWMS,
   RATELIMITER_MAX_REQUEST,
-} = require('../../config')
-const { logs } = require('../../../logger')
+} = require('@src/config')
+const { logs } = require('@root/logger')
 const { verifyJWT } = require('./authTokens')
-const { TOO_MANY_REQUEST } = require('../constant/httpStatusCodes')
-const MESSAGES = require('../messages')
+const { TOO_MANY_REQUEST } = require('@constant/httpStatusCodes')
+const MESSAGES = require('@common/messages')
 
 const apiLimiter = rateLimit({
   windowMs: RATELIMITER_WINDOWMS,

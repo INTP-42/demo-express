@@ -1,4 +1,4 @@
-const { IpBlackList } = require('../models')
+const { IpBlackList } = require('@common/models')
 
 const getBlackListIp = async (query, projection = {}) =>
   IpBlackList.findOne(query, projection)

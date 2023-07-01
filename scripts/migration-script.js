@@ -1,4 +1,4 @@
-const migrateMongoConfig = require('../migrate-mongo-config')
+const migrateMongoConfig = require('@root/migrate-mongo-config')
 const { status, config, database, up, down } = require('migrate-mongo')
 
 const migrationApplyOrRollback = async (operation) => {

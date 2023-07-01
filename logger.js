@@ -5,7 +5,7 @@ const {
   ENABLE_LOGGING,
   MAX_LOGS,
   LOGGER_VERBOSE,
-} = require('./src/config')
+} = require('@src/config')
 
 const levels = {
   crit: 60,

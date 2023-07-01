@@ -1,5 +1,5 @@
 // In this file you can configure migrate-mongo
-const { DB_URL: url } = require('./src/config')
+const { DB_URL: url } = require('@src/config')
 
 const config = {
   mongodb: {

@@ -1,4 +1,4 @@
-const { User } = require('../models')
+const { User } = require('@common/models')
 
 const PROJECTION = {
   ALL: {},

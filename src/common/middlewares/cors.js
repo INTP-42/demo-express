@@ -1,13 +1,11 @@
 const {
   corsDao: { getCorsWhiteListAll },
-} = require('../dao')
-const { CustomError } = require('../utils/customError')
-const {
-  httpStatusCodes: { BAD_REQUEST },
-} = require('../constant/index')
-const { logs } = require('../../../logger')
+} = require('@common/dao')
+const { CustomError } = require('@utils/customError')
+const { BAD_REQUEST } = require('@constant/httpStatusCodes')
+const { logs } = require('@root/logger')
 const cors = require('cors')
-const { CORS_ORIGIN_CHECK_ENABLED } = require('../../config')
+const { CORS_ORIGIN_CHECK_ENABLED } = require('@src/config')
 const ip = require('ip')
 
 const checkOriginForWhitelist = async (origin, isPrivateIP = false) => {

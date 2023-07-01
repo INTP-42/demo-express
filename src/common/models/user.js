@@ -1,4 +1,4 @@
-const { createOrUseExistingModel } = require('../utils/mongoutils')
+const { createOrUseExistingModel } = require('@utils/mongoutils')
 const mongoose = require('mongoose')
 const { Schema } = mongoose
 

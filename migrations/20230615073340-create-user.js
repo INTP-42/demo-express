@@ -1,4 +1,4 @@
-const { generateMigrationData } = require('../src/common/utils/generator')
+const { generateMigrationData } = require('@utils/generator')
 const domain = 'yopmail.com'
 
 const processData = async () => {
