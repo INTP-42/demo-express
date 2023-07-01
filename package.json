@@ -73,6 +73,7 @@
     "joi": "^17.9.2",
     "jsonwebtoken": "^9.0.0",
     "lodash": "^4.17.21",
+    "module-alias": "^2.2.3",
     "mongoose": "^7.3.0",
     "newrelic": "^10.3.0",
     "node-cron": "^3.0.2",
@@ -102,5 +103,11 @@
     "nyc": "^15.1.0",
     "pm2": "^5.3.0",
     "prettier": "^2.8.8"
+  },
+  "_moduleAliases": {
+    "@root": ".",
+    "@scripts": "./scripts",
+    "@src": "./src",
+    "@common": "./src/common"
   }
 }
