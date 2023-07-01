@@ -104,7 +104,7 @@ devDependencies:
     specifier: ^1.7.0
     version: 1.7.0
   husky:
-    specifier: ^8.0.3
+    specifier: ^8.0.0
     version: 8.0.3
   migrate-mongo:
     specifier: ^10.0.0

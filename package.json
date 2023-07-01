@@ -39,7 +39,9 @@
     "preinstall": "npx only-allow pnpm",
     "build": "rm -rf node_modules && pnpm i --frozen-lockfile",
     "open:report": "opener reports/test/*.html && opener reports/code-coverage/index.html",
-    "db:delete": "node -r module-alias/register scripts/db-delete.js"
+    "db:delete": "node -r module-alias/register scripts/db-delete.js",
+    "husky:install": "pnpm dlx husky-init && pnpm install",
+    "husky:uninstall": "pnpm uninstall husky && git config --unset core.hooksPath"
   },
   "keywords": [
     "express",
@@ -94,7 +96,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^6.0.0",
     "generate-password": "^1.7.0",
-    "husky": "^8.0.3",
+    "husky": "^8.0.0",
     "migrate-mongo": "^10.0.0",
     "mocha": "^10.2.0",
     "mochawesome": "^7.1.3",
