@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
-const { DB_URL, DEBUG_QUERIES } = require('../config')
-const { logs } = require('../../logger')
+const { DB_URL, DEBUG_QUERIES } = require('@src/config')
+const { logs } = require('@root/logger')
 
 module.exports = async () => {
   const methodName = '[DB connection]'

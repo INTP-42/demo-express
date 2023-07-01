@@ -1,11 +1,16 @@
 const express = require('express')
 const helmet = require('helmet')
 const http = require('http')
-const { databaseConnection } = require('./database')
-const server = require('./server')
-const { logs } = require('../logger')
-const { PORT, APP_NAME, NEW_RELIC_REQUIRED, IS_TESTING } = require('./config')
-require('./common/models')
+const { databaseConnection } = require('@src/database')
+const server = require('@src/server')
+const { logs } = require('@root/logger')
+const {
+  PORT,
+  APP_NAME,
+  NEW_RELIC_REQUIRED,
+  IS_TESTING,
+} = require('@src/config')
+require('@common/models')
 // Load newRelic in app if enabled
 NEW_RELIC_REQUIRED && require('newrelic')
 const app = express()

@@ -1,4 +1,4 @@
-const { Cors } = require('../models')
+const { Cors } = require('@common/models')
 
 const getCorsWhiteList = async (query, projection = {}) =>
   Cors.findOne(query, projection)

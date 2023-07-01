@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken')
-const { JWT_SECRET } = require('../../config')
+const { JWT_SECRET } = require('@src/config')
 
 /**
  * @description generate jwt token with secret key defined in env file.

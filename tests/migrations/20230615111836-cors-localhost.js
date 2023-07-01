@@ -1,4 +1,4 @@
-const data = require('../../data/cors')
+const data = require('@data/cors')
 
 module.exports = {
   async up(db) {

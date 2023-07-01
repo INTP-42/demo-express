@@ -44,6 +44,9 @@ dependencies:
   lodash:
     specifier: ^4.17.21
     version: 4.17.21
+  module-alias:
+    specifier: ^2.2.3
+    version: 2.2.3
   mongoose:
     specifier: ^7.3.0
     version: 7.3.0
@@ -4569,6 +4572,10 @@ packages:
       strip-ansi: 6.0.1
       uuid: 8.3.2
     dev: true
+
+  /module-alias@2.2.3:
+    resolution: {integrity: sha512-23g5BFj4zdQL/b6tor7Ji+QY4pEfNH784BMslY9Qb0UnJWRAt+lQGLYmRaM0KDBwIG23ffEBELhZDP2rhi9f/Q==}
+    dev: false
 
   /module-details-from-path@1.0.3:
     resolution: {integrity: sha512-ySViT69/76t8VhE1xXHK6Ch4NcDd26gx0MzKXLO+F7NOtnqH68d9zF94nT8ZWSxXh8ELOERsnJO/sWt1xZYw5A==}

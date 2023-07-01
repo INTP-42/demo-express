@@ -1,17 +1,17 @@
 const _ = require('lodash')
-const MESSAGES = require('../messages')
+const MESSAGES = require('@common/messages')
 const {
   UN_PROCESSABLE_ENTITY,
   BAD_REQUEST,
   UNAUTHORIZED,
   NOT_FOUND,
-} = require('../constant/httpStatusCodes')
+} = require('@constant/httpStatusCodes')
 const {
   userDao: { getUserInstance },
-} = require('../dao')
-const { verifyJWT } = require('../utils/authTokens')
-const { CustomError } = require('../utils/customError')
-const { logs } = require('../../../logger')
+} = require('@common/dao')
+const { verifyJWT } = require('@utils/authTokens')
+const { CustomError } = require('@utils/customError')
+const { logs } = require('@root/logger')
 const {
   Types: { ObjectId },
 } = require('mongoose')

@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "baseUrl": "./",
+    "paths": {
+      "@root/*": ["./*"],
+      "@data/*": ["./data/*"],
+      "@scripts/*": ["./scripts/*"],
+      "@src/*": ["./src/*"],
+      "@common/*": ["./src/common/*"],
+      "@constant/*": ["./src/common/constant/*"],
+      "@utils/*": ["./src/common/utils/*"],
+      "@middlewares/*": ["./src/common/middlewares/*"]
+    }
+  },
+  "exclude": ["node_modules", "**/node_modules/*"]
+}

@@ -1,11 +1,8 @@
 const chai = require('chai')
 const chaiHttp = require('chai-http')
-const app = require('../src/app')
-const {
-  httpStatusCodes: { OK },
-  constant: { API_VERSION },
-} = require('../src/common/constant')
-
+const app = require('@src/app')
+const { API_VERSION } = require('@constant/constant')
+const { OK } = require('@constant/httpStatusCodes')
 chai.use(chaiHttp)
 const requester = chai.request(app).keepOpen()
 

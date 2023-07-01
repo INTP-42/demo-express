@@ -1,6 +1,5 @@
 const convict = require('convict')
 require('dotenv').config()
-const app = require('../../package.json')
 const { env } = process
 const IS_TESTING = env.IS_TESTING === 'true'
 
@@ -83,7 +82,7 @@ const config = convict({
   APP_NAME: {
     doc: 'Application name',
     format: String,
-    default: env.APP_NAME || app.name,
+    default: env.APP_NAME || 'NIL',
     env: 'APP_NAME',
   },
   CORS_ORIGIN_CHECK_ENABLED: {
